@@ -1,0 +1,65 @@
+# Node / 前端构建产物
+node_modules/
+dist/
+build/
+*.local
+
+# 依赖锁目录（pnpm / yarn / npm）
+.pnpm-store/
+
+# 环境变量（千万别提交！里面可能有密钥）
+.env
+.env.local
+.env.*.local
+
+# 日志
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 编辑器 / IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+
+# 临时文件
+tmp/
+temp/
+.cache/
+
+# SQLite 数据库文件（运行时数据，不入仓库）
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+data/*.sqlite
+
+# 用户上传文件（头像、资料等运行时产生）
+uploads/
+public/uploads/
+
+# 系统文件
+Thumbs.db
+
+# Vite 缓存
+.vite/
+
+# Vue 缓存
+.cache/
+
+# pnpm
+.pnpm-debug.log*
+
+# 后端运行时进程
+*.pid
+*.seed
+*.pid.lock
