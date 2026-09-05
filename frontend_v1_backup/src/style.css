@@ -1,0 +1,209 @@
+/* ============================================
+   校园工具箱 v2 - 全局样式
+   三款浅色主题 + 深色模式（CSS 变量体系）
+   ============================================ */
+
+/* ========= 主题 1：柔粉 Soft Pink（默认） ========= */
+html[data-theme="pink"] {
+  --c-primary: #f5c9b5;
+  --c-primary-deep: #e8a892;
+  --c-primary-light: #fdf6f1;
+  --c-cream: #faf0e6;
+  --c-accent: #e8b89a;
+  --c-bg-grad-1: #fbe9e0;
+  --c-bg-grad-2: #fdf6f1;
+  --c-bg-grad-3: #faf0e6;
+  --c-card-border: rgba(255, 255, 255, 0.6);
+  --c-course-bg-1: #fbe4d8;
+  --c-course-bg-2: #f6cdbd;
+  --c-tag-text: #fff;
+}
+
+/* ========= 主题 2：薄荷 Mint（清新亮） ========= */
+html[data-theme="mint"] {
+  --c-primary: #b8e0cf;
+  --c-primary-deep: #8fcbb2;
+  --c-primary-light: #f2faf6;
+  --c-cream: #e8f5ee;
+  --c-accent: #a5d8b8;
+  --c-bg-grad-1: #dff0e7;
+  --c-bg-grad-2: #f2faf6;
+  --c-bg-grad-3: #e6f5ee;
+  --c-card-border: rgba(255, 255, 255, 0.6);
+  --c-course-bg-1: #cdeee0;
+  --c-course-bg-2: #a9dbc5;
+  --c-tag-text: #1f4a38;
+}
+
+/* ========= 主题 3：雾蓝 Mist Blue（清爽） ========= */
+html[data-theme="blue"] {
+  --c-primary: #bcd4ef;
+  --c-primary-deep: #94b6dc;
+  --c-primary-light: #f0f6fc;
+  --c-cream: #e3eef7;
+  --c-accent: #a9c8e4;
+  --c-bg-grad-1: #dce8f4;
+  --c-bg-grad-2: #f0f6fc;
+  --c-bg-grad-3: #e3edf7;
+  --c-card-border: rgba(255, 255, 255, 0.6);
+  --c-course-bg-1: #cfe0f0;
+  --c-course-bg-2: #aac8e4;
+  --c-tag-text: #1f3a57;
+}
+
+/* ========= 深色模式（黑色调，覆盖所有主题） ========= */
+html[data-dark="true"] {
+  --c-primary-light: #1f1f24;
+  --c-cream: #2a2a31;
+  --c-grad-bg: #15151a;
+  --c-white: #26262e;
+  --c-text: #ece8e4;
+  --c-text-sub: #b0aaa5;
+  --c-text-light: #7c7673;
+  --c-shadow: rgba(0, 0, 0, 0.4);
+  --c-nav-bg: rgba(38, 38, 46, 0.92);
+  --c-topbar-bg: rgba(30, 30, 36, 0.88);
+  --c-modal-bg: rgba(0, 0, 0, 0.6);
+  --c-input-border: #3a3a44;
+  --c-error-bg: #3a1f1f;
+  --c-error-text: #f0a8a0;
+}
+
+/* ========= 通用基础变量（主题/暗色共用的骨架） ========= */
+:root {
+  /* 文字（浅色默认；深色下会被上面覆盖） */
+  --c-text: #4a3b38;
+  --c-text-sub: #8a7670;
+  --c-text-light: #b8a8a2;
+
+  /* 表面色 */
+  --c-white: #ffffff;
+
+  /* 深色下的阴影用这个 */
+  --c-shadow: rgba(232, 168, 146, 0.18);
+
+  /* 导航 / 顶栏 背景（浅色默认） */
+  --c-nav-bg: rgba(255, 255, 255, 0.9);
+  --c-topbar-bg: rgba(253, 246, 241, 0.85);
+
+  /* 弹窗遮罩 */
+  --c-modal-bg: rgba(0, 0, 0, 0.4);
+
+  /* 输入框边框 / 错误提示 */
+  --c-input-border: #f0dfd5;
+  --c-error-bg: #fdecea;
+  --c-error-text: #c0392b;
+
+  /* 圆角 */
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+
+  /* 柔和阴影 */
+  --shadow-soft: 6px 6px 18px var(--c-shadow),
+                 -6px -6px 18px rgba(255, 255, 255, 0.9);
+  --shadow-inset: inset 4px 4px 8px var(--c-shadow),
+                  inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+}
+
+/* 深色模式下的阴影覆盖 */
+html[data-dark="true"] {
+  --shadow-soft: 6px 6px 18px var(--c-shadow);
+  --shadow-inset: inset 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ========= 基础重置 ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+               "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: var(--c-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg,
+    var(--c-bg-grad-1) 0%,
+    var(--c-bg-grad-2) 40%,
+    var(--c-bg-grad-3) 100%);
+  background-attachment: fixed;
+}
+
+html[data-dark="true"] body {
+  background: linear-gradient(160deg, #15151a 0%, #1a1a20 100%);
+}
+
+#app { min-height: 100vh; }
+
+/* ========= 通用卡片（棉花糖凸起） ========= */
+.card {
+  background: var(--c-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 20px;
+  border: 1px solid var(--c-card-border);
+}
+
+/* ========= 按钮 ========= */
+.btn-primary {
+  background: var(--c-primary);
+  color: var(--c-tag-text, var(--c-text));
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--c-primary-deep); transform: translateY(-1px); }
+.btn-primary:active { box-shadow: var(--shadow-inset); }
+
+/* ========= 输入框 ========= */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--c-input-border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  background: var(--c-white);
+  color: var(--c-text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-field:focus { border-color: var(--c-primary-deep); }
+
+/* ========= 页面标题 ========= */
+.page-title { font-size: 24px; font-weight: 600; color: var(--c-text); margin-bottom: 6px; }
+.page-sub { font-size: 14px; color: var(--c-text-sub); margin-bottom: 20px; }
+
+/* ========= 返回按钮（二级页通用） ========= */
+.back-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0 10px;
+}
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: var(--c-text);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+.back-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+a { color: inherit; text-decoration: none; }
